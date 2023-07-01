@@ -71,9 +71,11 @@ export class SinglyLinkedList<T> {
   public getHead(): Node<T> {
     return this.head;
   }
+
   public getTail(): Node<T> {
     return this.tail;
   }
+
   public size(): number {
     return this.length;
   }

@@ -46,4 +46,28 @@ describe("SinglyLinkedList", () => {
       }
     );
   });
+
+  describe("prepend", () => {
+    let list: SinglyLinkedList<any>;
+    const cases = [
+      [10, 20],
+      [50, 70],
+      [90, 200],
+    ];
+
+    beforeEach(() => {
+      list = new SinglyLinkedList();
+    });
+
+    it.each(cases)(
+      "given %p as firstNode and %p as secondNode, prepend second node to list",
+      (firstNode, secondNode) => {
+        list.append(firstNode);
+        list.prepend(secondNode);
+
+        expect(list.getHead().data).toBe(secondNode);
+        expect(list.getTail().data).toBe(firstNode);
+      }
+    );
+  });
 });
