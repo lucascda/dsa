@@ -4,7 +4,11 @@ interface Node<T> {
 }
 
 export class SinglyLinkedList<T> {
-  constructor(private length: number = 0, private head: Node<T> = null) {}
+  constructor(
+    private length: number = 0,
+    private head: Node<T> = null,
+    private tail: Node<T> = null
+  ) {}
 
   public isEmpty(): boolean {
     return this.length === 0 ? true : false;
@@ -34,10 +38,11 @@ export class SinglyLinkedList<T> {
 
     if (this.isEmpty()) {
       this.head = node;
+      this.tail = node;
       this.length++;
     } else {
-      const lastNode = this.traverse();
-      lastNode.next = node;
+      this.tail.next = node;
+      this.tail = node;
       this.length++;
     }
   }
@@ -63,6 +68,15 @@ export class SinglyLinkedList<T> {
     console.log(this.head);
   }
 
+  public getHead(): Node<T> {
+    return this.head;
+  }
+  public getTail(): Node<T> {
+    return this.tail;
+  }
+  public size(): number {
+    return this.length;
+  }
   public printList(): void {
     console.log(this);
   }
