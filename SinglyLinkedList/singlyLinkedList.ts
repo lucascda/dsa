@@ -1,7 +1,4 @@
-interface Node<T> {
-  data: T;
-  next: Node<T> | null;
-}
+import { Node } from "../Node/node";
 
 export class SinglyLinkedList<T> {
   constructor(
